@@ -14,12 +14,13 @@ from langchain_core.messages import (
     AIMessageChunk,
     BaseMessage,
     HumanMessage,
+    SystemMessage,
 )
 from langchain_core.messages.ai import UsageMetadata
 from langchain_core.outputs import ChatGeneration, ChatGenerationChunk, ChatResult
 from pydantic import Field
 
-class OllamaChatModel(BaseChatModel):
+class CustomOllamaChatModel(BaseChatModel):
     """A custom chat model that echoes the first `parrot_buffer_length` characters
     of the input.
 
@@ -73,7 +74,7 @@ class OllamaChatModel(BaseChatModel):
         print("Generating")
 
         # Replace this with actual logic to generate a response from a list of messages.
-        last_message = messages[-1]
+        # last_message = messages[-1]
         message_contents = []
 
         for msg in messages:
@@ -81,6 +82,8 @@ class OllamaChatModel(BaseChatModel):
                 message_contents.append({"role": "user", "content": msg.content})
             elif isinstance(msg, AIMessage):
                 message_contents.append({"role": "assistant", "content": msg.content})
+            elif isinstance(msg, SystemMessage):
+                message_contents.append({"role": "system", "content": msg.content})
 
         headers = {
             'Content-Type': 'application/json'
@@ -162,7 +165,6 @@ class OllamaChatModel(BaseChatModel):
         response = requests.post(self.end_point, headers=headers, json=json_data)
 
         
-
         for line in response.iter_lines(decode_unicode=True):
             response_json = json.loads(line)
             content = response_json['message']['content']
@@ -267,15 +269,39 @@ class OllamaChatModel(BaseChatModel):
             "end_point": self.end_point,
         }
 
-async def main():
+# async def main():
+#     API_CHAT = "http://localhost:11434/api/chat"
+#     model = OllamaChatModel(model="llama3.2", end_point=API_CHAT)
+#     messages = [
+#         HumanMessage(content="こんにちは"),
+#         AIMessage(content="こんにちは！何が聞きたいですか？"),
+#         HumanMessage(content="アジャイルについて300文字で教えてください"),
+#     ]
+    
+#     print("*"*10, "generateを呼び出す", "*"*10)
+#     response = model.invoke(messages)
+#     print(response.content, end='', flush=True)
+
+
+#     print("*"*10, "streamを呼び出す", "*"*10)
+#     for chunk in model.stream(messages):
+#         print(chunk.content, end='', flush=True)
+
+
+#     print("*"*10, "astreamを呼び出す", "*"*10)
+#     async for chunk in model.astream(messages):
+#         print(chunk.content, end='', flush=True)
+
+if __name__ == "__main__":
+    # asyncio.run(main())
     API_CHAT = "http://localhost:11434/api/chat"
-    model = OllamaChatModel(model="llama3.2", end_point=API_CHAT)
+    model = CustomOllamaChatModel(model="llama3.2", end_point=API_CHAT)
     messages = [
         HumanMessage(content="こんにちは"),
         AIMessage(content="こんにちは！何が聞きたいですか？"),
         HumanMessage(content="アジャイルについて300文字で教えてください"),
     ]
-    
+
     print("*"*10, "generateを呼び出す", "*"*10)
     response = model.invoke(messages)
     print(response.content, end='', flush=True)
@@ -284,12 +310,3 @@ async def main():
     print("*"*10, "streamを呼び出す", "*"*10)
     for chunk in model.stream(messages):
         print(chunk.content, end='', flush=True)
-
-
-    print("*"*10, "astreamを呼び出す", "*"*10)
-    async for chunk in model.astream(messages):
-        print(chunk.content, end='', flush=True)
-
-if __name__ == "__main__":
-    asyncio.run(main())
-
