@@ -20,6 +20,67 @@ from langchain_core.messages.ai import UsageMetadata
 from langchain_core.outputs import ChatGeneration, ChatGenerationChunk, ChatResult
 from pydantic import Field
 
+# .venv\Lib\site-packages\langchain_core\language_models\chat_models.py
+#    class SimpleChatModel(BaseChatModel): は以下の通り
+from abc import abstractmethod
+from langchain_core.callbacks import (
+    AsyncCallbackManager,
+    AsyncCallbackManagerForLLMRun,
+    BaseCallbackManager,
+    CallbackManager,
+    CallbackManagerForLLMRun,
+    Callbacks,
+)
+from langchain_core.runnables.config import ensure_config, run_in_executor
+class SimpleChatModel(BaseChatModel):
+    """Simplified implementation for a chat model to inherit from.
+
+    **Note** This implementation is primarily here for backwards compatibility.
+        For new implementations, please use `BaseChatModel` directly.
+    """
+
+    def _generate(
+        self,
+        messages: list[BaseMessage],
+        stop: Optional[list[str]] = None,
+        run_manager: Optional[CallbackManagerForLLMRun] = None,
+        **kwargs: Any,
+    ) -> ChatResult:
+        output_str = self._call(messages, stop=stop, run_manager=run_manager, **kwargs)
+        message = AIMessage(content=output_str)
+        generation = ChatGeneration(message=message)
+        return ChatResult(generations=[generation])
+
+    @abstractmethod
+    def _call(
+        self,
+        messages: list[BaseMessage],
+        stop: Optional[list[str]] = None,
+        run_manager: Optional[CallbackManagerForLLMRun] = None,
+        **kwargs: Any,
+    ) -> str:
+        """Simpler interface."""
+
+    async def _agenerate(
+        self,
+        messages: list[BaseMessage],
+        stop: Optional[list[str]] = None,
+        run_manager: Optional[AsyncCallbackManagerForLLMRun] = None,
+        **kwargs: Any,
+    ) -> ChatResult:
+        return await run_in_executor(
+            None,
+            self._generate,
+            messages,
+            stop=stop,
+            run_manager=run_manager.get_sync() if run_manager else None,
+            **kwargs,
+        )
+
+
+
+
+
 class CustomOllamaChatModel(BaseChatModel):
     """A custom chat model that echoes the first `parrot_buffer_length` characters
     of the input.

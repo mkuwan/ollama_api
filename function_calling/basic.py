@@ -7,18 +7,49 @@ chatModel = ChatOllama(
     model="llama3.2",
     temperature=0,
     base_url="http://localhost:11434",
+    
     # other params...
 )
 
 # .local_pass.jsonファイルからAPIキーを取得する
 with open(".local_pass.json") as f:
     OPEN_WEATHER_API_KEY = json.load(f)["OPEN_WEATHER_API_KEY"]
+
+
+def geta_current_weathcer_from_city(city_name: str = "Tokyo") -> dict:
+    """指定された都市の天気をOpenWeatherAPIを使用して取得する
+
+    Args:
+        city_name (str, optional): 都市名. Defaults to "Tokyo". 都市名は必ず英語で指定する
+
+    Returns:
+        dict: 天気情報
+    """
     
+    # 都市名から天気情報を取得する 
+    # https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+    # https://api.openweathermap.org/data/2.5/weather?q={city name},{country code}&appid={API key}
+    # https://api.openweathermap.org/data/2.5/weather?q={city name},{state code},{country code}&appid={API key}
+    current_weather_response = requests.get("https://api.openweathermap.org/data/2.5/weather", params={
+        "q": city_name + ",jp",
+        "lang": "ja",
+        "units": "metric",
+        "appid": OPEN_WEATHER_API_KEY
+    })
+    current_weather = current_weather_response.json()
+    # print(current_weather)
+    return {
+        "city_name": current_weather["name"],
+        "description": current_weather["weather"][0]["description"],
+        "temparature": math.floor(current_weather["main"]["temp"])
+    }
+
 
 
 # OpenWeather で指定の都市の天気を取得する
 def get_current_weather(city_name: str = "Tokyo") -> dict:
     """指定された都市の天気をOpenWeatherAPIを使用して取得する
+    緯度・経度を取得してから天気を取得する
 
     Args:
         city_name (str, optional): 都市名. Defaults to "Tokyo". 都市名は必ず英語で指定する
@@ -59,7 +90,7 @@ def get_current_weather(city_name: str = "Tokyo") -> dict:
 
 
 def call_with_function_or_not(query):
-    tools = [get_current_weather]
+    tools = [geta_current_weathcer_from_city]
     with_tool = chatModel.bind_tools(tools)
     response = with_tool.invoke(query)
 
@@ -93,3 +124,8 @@ if __name__ == "__main__":
     # 天気とは関係のない質問をしたらToolが選択されないことを確認します
     query = "こんにちは"
     call_with_function_or_not(query)
+
+
+    # response = geta_current_weathcer_from_city("Kawasaki")
+    # print(response)
+
