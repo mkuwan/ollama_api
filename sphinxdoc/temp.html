@@ -1,0 +1,1491 @@
+
+<!DOCTYPE HTML>
+
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="ja" name="languageCode"/>
+<meta content="jp" name="countryCode"/>
+<meta content="プロンプト・チェーンとは" name="searchTitle"/>
+<meta content="Data AI - All" name="focusArea"/>
+<title>プロンプト・チェーンとは| IBM</title>
+
+<link href="/content/dam/adobe-cms/default-images/favicon.svg" rel="icon"/>
+<meta content="大規模言語モデル,プロンプト・エンジニアリング" name="keywords"/>
+<meta content="プロンプト・チェーンは、大規模言語モデル（LLM）を活用する自然言語処理（NLP）の1つの強力な手法であり、一連のプロンプトに従って目的の出力を生成します。このプロセスでは、一連のプロンプトがNLPモデルに提供され、望ましい応答が生成されるようにガイドされます。モデルはコンテキストとプロンプト間の関係を理解することを学習し、一貫性と整合性があり、コンテキストに沿ったリッチ・テキストを生成できるようになります。" name="description"/>
+<meta content="learn" name="template"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<meta content="thinkhub" name="ibm.com.search.appid"/>
+<meta content="thinkhub" name="ibm.com.search.scopes"/>
+<meta content="2024-04-23T00:00:00.000" name="dcterms.date"/>
+<meta content="分類学 : トピック / 人工知能と機械学習 / 人工知能（AI） / 生成AI / プロンプト・エンジニアリング" name="ibm.search.facet.field_hierarchy_01"/>
+<meta name="ibm.search.facet.field_hierarchy_02"/>
+<meta content="分類学 : コンテンツフォーマット / 記事" name="ibm.search.facet.field_hierarchy_03"/>
+<meta content="分類学 : コンテンツタイプ / 解説者" name="ibm.search.facet.field_hierarchy_04"/>
+<meta name="ibm.search.facet.field_hierarchy_05"/>
+<meta content="プロンプト・エンジニアリング" name="ibm.search.facet.field_keyword_01"/>
+<meta content="https://prod-cloud-publish.aem.ibm.net/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/d1/f8/prompt-chaining-ls.component.crop-thumbnail-16-by-9-retina.ts=0.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/leadspace" name="ibm.search.facet.field_keyword_09"/>
+<meta name="ibm.search.facet.field_keyword_14"/>
+<meta content="23 4月 2024" name="ibm.search.facet.field_text_01"/>
+<meta content="解説者" name="ibm.search.facet.field_text_03"/>
+<link href="https://www.ibm.com/jp-ja/topics/prompt-chaining" rel="canonical"/>
+<link as="script" href="/etc.clientlibs/adobe-cms/clientlibs/clientlib-masthead-container.lc-a811d0452ecefdc724c02083cb2fb6a2-lc.min.js" rel="preload"/>
+<link as="script" href="/etc.clientlibs/adobe-cms/clientlibs/clientlib-leadspace.lc-fab8cf9a2dbfda51bbc00e17bba4edad-lc.min.js" rel="preload"/>
+
+
+
+
+<link href="https://www.ibm.com/it-it/topics/prompt-chaining" hreflang="it-it" rel="alternate">
+<link href="https://www.ibm.com/sa-ar/topics/prompt-chaining" hreflang="ar-sa" rel="alternate">
+<link href="https://www.ibm.com/de-de/topics/prompt-chaining" hreflang="de-de" rel="alternate"/>
+<link href="https://www.ibm.com/kr-ko/topics/prompt-chaining" hreflang="ko-kr" rel="alternate"/>
+<link href="https://www.ibm.com/br-pt/topics/prompt-chaining" hreflang="pt-br" rel="alternate"/>
+<link href="https://www.ibm.com/id-id/topics/prompt-chaining" hreflang="id-id" rel="alternate"/>
+<link href="https://www.ibm.com/es-es/topics/prompt-chaining" hreflang="es-es" rel="alternate"/>
+<link href="https://www.ibm.com/fr-fr/topics/prompt-chaining" hreflang="fr-fr" rel="alternate"/>
+<link href="https://www.ibm.com/cn-zh/topics/prompt-chaining" hreflang="zh-cn" rel="alternate"/>
+<link href="https://www.ibm.com/mx-es/topics/prompt-chaining" hreflang="es-mx" rel="alternate"/>
+<link href="https://www.ibm.com/jp-ja/topics/prompt-chaining" hreflang="ja-jp" rel="alternate"/>
+
+
+<!-- Instana script specific to Dev environment start -->
+<!--      <script>
+          (function(s,t,a,n){s[t]||(s[t]=a,n=s[a]=function(){n.q.push(arguments)},
+          n.q=[],n.v=2,n.l=1*new Date)})(window,"InstanaEumObject","ineum");
+
+          ineum('reportingUrl', 'https://eum-orange-saas.instana.io');
+          ineum('key', 'mFJnYtpBSiCKl9zenWHXtg');
+          ineum('trackSessions');
+      </script>
+      <script defer crossorigin="anonymous" src=https://eum.instana.io/1.7.2/eum.min.js
+              integrity="sha384-cgeSlevgebehPauohUhsnAeBrpjXzaj94mSv3L2EXjCQH0RRb9xSQ2ErGOWkthIJ"></script>-->
+<!-- Instana script specific to Dev environment end -->
+<meta content="https://www.ibm.com/jp-ja/topics/prompt-chaining" property="og:url"/>
+<meta content="website" property="og:type"/>
+<meta content="プロンプト・チェーンとは| IBM" property="og:title"/>
+<meta content="プロンプト・チェーンは、大規模言語モデル（LLM）を活用する自然言語処理（NLP）の1つの強力な手法であり、一連のプロンプトに従って目的の出力を生成します。このプロセスでは、一連のプロンプトがNLPモデルに提供され、望ましい応答が生成されるようにガイドされます。モデルはコンテキストとプロンプト間の関係を理解することを学習し、一貫性と整合性があり、コンテキストに沿ったリッチ・テキストを生成できるようになります。" property="og:description"/>
+<meta content="https://assets.ibm.com/is/image/ibm/ibm-8bar-logo-2560x2560?$original$" property="og:image"/>
+
+<link as="script" href="https://hybrid-cloud-widgets-production.s3.us.cloud-object-storage.appdomain.cloud/loader.js" rel="preload"/>
+
+<link href="/etc.clientlibs/adobe-cms/clientlibs/clientlib-base.lc-30313e00669f877069f15dd099f23454-lc.min.css" rel="stylesheet" type="text/css"/>
+<link href="/etc.clientlibs/adobe-cms/clientlibs/clientlib-idlStylesCarbon.lc-cb338454784b041f689bc70d1113fcc5-lc.min.css" rel="stylesheet" type="text/css"/>
+<link href="/etc.clientlibs/adobe-cms/clientlibs/clientlib-idlStyles.lc-caea9c4d00236f470206c9eb79deeeaa-lc.min.css" rel="stylesheet" type="text/css"/>
+<link href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/plex.css" rel="stylesheet">
+<link href="https://1.www.s81c.com/common/carbon/plex/sans.css" rel="stylesheet">
+</link></link></link></link></head>
+<body class="content-page page basicpage publish" data-fullwidthtemplate="false" id="content-page-13dff1b83f">
+<c4d-video-cta-container>
+<div class="root container responsivegrid">
+<div class="cmp-container" id="container-e9b80bd4f1">
+<div class="masthead">
+<c4d-masthead-container auth-method="profile-api" data-endpoint="#" has-cart="" has-contact="true" has-profile="" has-search=""></c4d-masthead-container>
+
+
+
+
+</div>
+<div class="leadspace">
+<div class="cds--grid cds--no-gutter">
+<c4d-leadspace gradient-style-scheme="" loadinganimation="" size="medium" type="left">
+<cds-breadcrumb slot="navigation">
+<cds-breadcrumb-item>
+<cds-breadcrumb-link href="/jp-ja">
+<p class="body-short-01">ホーム</p>
+</cds-breadcrumb-link>
+</cds-breadcrumb-item>
+<cds-breadcrumb-item>
+<cds-breadcrumb-link href="/jp-ja/topics">
+<p class="body-short-01">Topics </p>
+</cds-breadcrumb-link>
+</cds-breadcrumb-item>
+<cds-breadcrumb-item class="no-trailing-slash">
+<p class="body-short-01">プロンプト・チェーン</p>
+</cds-breadcrumb-item>
+</cds-breadcrumb>
+
+<c4d-leadspace-heading id="leadspaceSimpleTitle" type-style="fluid-heading-05">
+                
+
+
+
+  
+    プロンプト・チェーンとは
+
+
+
+
+
+
+    
+
+
+            </c4d-leadspace-heading>
+<div class="leadspace__copy">
+</div>
+<c4d-button-group slot="action">
+<c4d-button-group-item aria-label="プライマリー・オプション" cta-type="local" data-aem-autoid="aem--leadspace_cta-0" href="https://www.ibm.com/jp-ja/products/watsonx-ai" kind="primary" target="_self">
+<span>watsonx.aiを使用したプロンプト・チェーンの詳細を見る</span>
+</c4d-button-group-item>
+
+<c4d-button-group-item aria-label="セカンダリー・オプション" cta-type="local" data-aem-autoid="aem--leadspace_cta-1" href="https://www.ibm.com/account/reg/signup?formid=news-urx-52954" kind="tertiary" target="_blank">
+<span>AI関連の最新情報の購読を申し込む</span>
+</c4d-button-group-item>
+</c4d-button-group>
+<c4d-background-media gradient-hidden="" mobile-position="bottom" opacity="100">
+<div class="cds--image">
+<picture>
+<source media="(min-width: 1312px) and (min-resolution: 192dpi)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/d1/f8/prompt-chaining-ls.component.xl-retina.ts=1729533809710.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/leadspace"/>
+<source media="(min-width: 1312px)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/d1/f8/prompt-chaining-ls.component.xl.ts=1729533809710.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/leadspace"/>
+<source media="(min-width: 1056px) and (min-resolution: 192dpi)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/d1/f8/prompt-chaining-ls.component.l-retina.ts=1729533809710.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/leadspace"/>
+<source media="(min-width: 1056px)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/d1/f8/prompt-chaining-ls.component.l.ts=1729533809710.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/leadspace"/>
+<source media="(min-width: 672px) and (min-resolution: 192dpi)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/d1/f8/prompt-chaining-ls.component.m-retina.ts=1729533809710.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/leadspace"/>
+<source media="(min-width: 672px)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/d1/f8/prompt-chaining-ls.component.m.ts=1729533809710.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/leadspace"/>
+<source media="(min-width: 481px) and (min-resolution: 192dpi)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/d1/f8/prompt-chaining-ls.component.s-retina.ts=1729533809710.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/leadspace"/>
+<source media="(min-width: 481px)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/d1/f8/prompt-chaining-ls.component.s.ts=1729533809710.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/leadspace"/>
+<source media="(max-width: 480px) and (min-resolution: 192dpi)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/d1/f8/prompt-chaining-ls.component.xs-retina.ts=1729533809710.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/leadspace"/>
+<source media="(max-width: 480px)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/d1/f8/prompt-chaining-ls.component.xs.ts=1729533809710.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/leadspace"/>
+<img alt="プロンプト・チェーンのアイソメ図" class="aem--image__img" id="image-329143345" src="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/d1/f8/prompt-chaining-ls.component.xl.ts=1729533809710.png/content/adobe-cms/jp/ja/topics/prompt-chaining/_jcr_content/root/leadspace"/>
+</picture>
+</div>
+</c4d-background-media>
+</c4d-leadspace>
+</div>
+
+
+
+</div>
+<div class="table-of-contents container responsivegrid">
+<c4d-table-of-contents class="cmp-table-of-contents" data-autoid="c4d--tableofcontents" data-cmp-is="table-of-contents" stickyoffset="96">
+<div class="cmp-table-of-contents" id="table-of-contents-4eaf907781">
+<div class="body container responsivegrid">
+<div class="cmp-container" id="body-0cf28cf1a6">
+<div class="content-section-styled content-section container responsivegrid">
+<div class="cds--grid">
+<div class="cds--row">
+<div class="cds--col-lg-16 cds--no-gutter">
+<div class="cds--content-section">
+<div class="cmp-container" id="container-c4bedeb104">
+<div class="modular-container container responsivegrid">
+<div class="cmp-container" id="modular-container-4dcb35c89a">
+<div class="standalone-text rich-text text">
+<span class="normal cms-richtext">
+<p><strong>公開日：</strong>2024年4月23日<br/>
+<strong>寄稿者：</strong>Vrunda Gadesha、Eda Kavlakoglu</p>
+</span>
+</div>
+</div>
+</div>
+<div class="complex-narrative">
+
+<c4d-content-block-segmented content-section-body="" data-autoid="c4d-content-block-segmented" no-image="">
+<div slot="heading">
+<a data-title="プロンプト・チェーンとは" name="%E3%83%97%E3%83%AD%E3%83%B3%E3%83%97%E3%83%88%E3%83%BB%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%81%A8%E3%81%AF"></a>
+</div>
+<c4d-content-block-copy data-autoid="c4d--content-block__copy" slot="copy">
+<c4d-content-block-paragraph>
+<div class="cms-richtext" data-dynamic-inner-content="description" id="rich-text-a029d9e868">
+<p>プロンプト・チェーンは、<a href="https://www.ibm.com/jp-ja/topics/large-language-models" rel="noopener noreferrer" target="_self">大規模言語モデル（LLM）</a>を活用する<a href="https://www.ibm.com/jp-ja/topics/natural-language-processing" rel="noopener noreferrer" target="_self">自然言語処理（NLP）</a>手法の1つであり、一連のプロンプトに従って目的の出力を生成します。このプロセスでは、一連のプロンプトがNLPモデルに提供され、望ましい応答が生成されるようにガイドされます。モデルはコンテキストとプロンプト間の関係を理解することを学習し、一貫性と整合性があり、コンテキストに沿ったリッチ・テキストを生成できるようになります<sup>[<a href="#f01" rel="noopener noreferrer" target="_self">1</a>]</sup>。</p>
+</div>
+</c4d-content-block-paragraph>
+</c4d-content-block-copy>
+<c4d-content-block-segmented-item>
+<c4d-content-item-copy>
+</c4d-content-item-copy>
+<c4d-image alt="プロンプト・チェーンの概念図 " class="" default-src="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/26/b0/prompt-chaining-example.component.complex-narrative-xl.ts=1729533824110.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative/items/content_group/image" heading="プロンプト・チェーンの概念" id="image-1048136415" slot="media">
+<c4d-image-item media="(min-width: 1312px) and (min-resolution: 192dpi)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/26/b0/prompt-chaining-example.component.complex-narrative-xl-retina.ts=1729533824110.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative/items/content_group/image"></c4d-image-item>
+<c4d-image-item media="(min-width: 1312px)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/26/b0/prompt-chaining-example.component.complex-narrative-xl.ts=1729533824110.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative/items/content_group/image"></c4d-image-item>
+<c4d-image-item media="(min-width: 1056px) and (min-resolution: 192dpi)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/26/b0/prompt-chaining-example.component.complex-narrative-l-retina.ts=1729533824110.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative/items/content_group/image"></c4d-image-item>
+<c4d-image-item media="(min-width: 1056px)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/26/b0/prompt-chaining-example.component.complex-narrative-l.ts=1729533824110.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative/items/content_group/image"></c4d-image-item>
+<c4d-image-item media="(min-width: 672px) and (min-resolution: 192dpi)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/26/b0/prompt-chaining-example.component.complex-narrative-m-retina.ts=1729533824110.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative/items/content_group/image"></c4d-image-item>
+<c4d-image-item media="(min-width: 672px)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/26/b0/prompt-chaining-example.component.complex-narrative-m.ts=1729533824110.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative/items/content_group/image"></c4d-image-item>
+<c4d-image-item media="(min-width: 481px) and (min-resolution: 192dpi)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/26/b0/prompt-chaining-example.component.complex-narrative-s-retina.ts=1729533824110.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative/items/content_group/image"></c4d-image-item>
+<c4d-image-item media="(min-width: 481px)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/26/b0/prompt-chaining-example.component.complex-narrative-s.ts=1729533824110.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative/items/content_group/image"></c4d-image-item>
+<c4d-image-item media="(max-width: 480px) and (min-resolution: 192dpi)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/26/b0/prompt-chaining-example.component.complex-narrative-xs-retina.ts=1729533824110.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative/items/content_group/image"></c4d-image-item>
+<c4d-image-item media="(max-width: 480px)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/26/b0/prompt-chaining-example.component.complex-narrative-xs.ts=1729533824110.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative/items/content_group/image"></c4d-image-item>
+
+</c4d-image>
+</c4d-content-block-segmented-item>
+<c4d-content-block-segmented-item>
+<c4d-content-item-copy>
+<div class="cms-richtext" data-dynamic-inner-content="description" id="rich-text-a7f21c323f">
+<p>コンセプトは、<a href="https://www.ibm.com/jp-ja/topics/prompt-engineering" rel="noopener noreferrer" target="_self">プロンプト・エンジニアリング</a>の事前実装です。<a href="https://www.ibm.com/jp-ja/topics/text-generation" rel="noopener noreferrer" target="_self">テキスト生成</a>の品質と制を向上させる能力があるため、<a href="https://www.ibm.com/jp-ja/topics/natural-language-processing" rel="noopener noreferrer" target="_self">NLP</a>の分野で大きな注目を集めています。効果的なプロンプト・チェーンは、<a href="https://www.ibm.com/jp-ja/topics/zero-shot-learning" rel="noopener noreferrer" target="_self">ゼロ・ショット</a>、<a href="https://www.ibm.com/jp-ja/topics/few-shot-learning" rel="noopener noreferrer" target="_self">少数ショット</a>、または<a href="https://www.ibm.com/jp-ja/topics/fine-tuning" rel="noopener noreferrer" target="_self">ファイン・チューニングされた</a>カスタマイズ・モデルなどの他のアプローチよりも優れたエンジニアリング手法として実装できます<sup>[<a href="#f02" rel="noopener noreferrer" target="_self">2</a>]</sup>。プロンプト・チェーンは、明確な方向性と構造を提供することで、モデルがユーザーの意図をよりよく理解し、より正確で関連性の高い応答を生成するのに役立ちます。</p>
+<p>プロンプト・チェーンにより、さまざまな領域で<a href="https://www.ibm.com/jp-ja/ai-assistants" rel="noopener noreferrer" target="_self">AIアシスタンス</a>の有効性を高めることができます。複雑なタスクを小さなプロンプトに分割し、それらを連結することで、開発者は個々のユーザーのニーズに合わせた、よりパーソナライズされた正確な応答を作成できます。このアプローチにより、全体的なユーザー・エクスペリエンスが向上するだけでなく、変化するユーザー要件やアプリケーション・シナリオに応じたカスタマイズと適応性も向上します<sup><a href="#f03">[3]</a></sup>。</p>
+</div>
+</c4d-content-item-copy>
+<c4d-text-cta cta-type="local" data-dynamic-inner-content="ctaLabel" data-dynamic-properties='{"ctaUrl":"href"}' href="https://www.ibm.com/jp-ja/ai-assistants" icon-placement="right" slot="footer" target="_self">IBM AIアシスタントの詳細を見る
+            
+        </c4d-text-cta>
+</c4d-content-block-segmented-item>
+<div slot="complementary">
+<div class="aside-card">
+<c4d-card cta-type="local" grid-mode="condensed" href="https://www.ibm.com/account/reg/signup?formid=urx-52467" no-poster="true" pictogram-placement="top" target="_blank">
+<c4d-card-eyebrow aria-hidden="true" slot="eyebrow">
+            レポート
+        </c4d-card-eyebrow>
+<c4d-card-heading aria-level="3" role="heading" slot="heading">
+            AIによるカスタマー・サービスの変革：包括的なガイド
+        </c4d-card-heading>
+<p>AIがカスタマー・サービスにとって優先事項である理由、責任あるAIを構築する方法、コンタクト・センターの最適化とカスタマー・エクスペリエンスの向上におけるAIの役割について説明しています。 </p>
+<c4d-card-footer aria-hidden="true" class="cds--card__footer-icon-size" cta-type="local" href="https://www.ibm.com/account/reg/signup?formid=urx-52467" icon-placement="right" slot="footer" target="_blank">
+</c4d-card-footer>
+</c4d-card>
+
+
+</div>
+<c4d-link-list type="default">
+<c4d-link-list-heading aria-level="4" role="heading" slot="heading">
+            
+
+
+  
+  
+      関連コンテンツ
+  
+
+
+
+
+    
+
+
+        </c4d-link-list-heading>
+<c4d-card class="link-list-item-card" cta-type="local" href="https://www.ibm.com/account/reg/signup?formid=urx-52509" no-poster="" target="_blank">
+
+<c4d-card-link-heading></c4d-card-link-heading>
+<c4d-card-footer cta-type="local" href="https://www.ibm.com/account/reg/signup?formid=urx-52509" target="_blank">
+            生成AIに関するCEOのガイドのコピーをリクエストする
+            
+        </c4d-card-footer>
+</c4d-card>
+
+</c4d-link-list>
+</div>
+</c4d-content-block-segmented>
+<div horizontal-ruler="">
+<c4d-hr></c4d-hr>
+
+</div>
+</div>
+<div class="complex-narrative">
+<c4d-content-block-segmented class="complex-narrative-container" content-section-body="" data-autoid="c4d-content-block-segmented" no-aside="" no-image="">
+<div slot="heading">
+<a data-title="プロンプトの種類
+" name="%E3%83%97%E3%83%AD%E3%83%B3%E3%83%97%E3%83%88%E3%81%AE%E7%A8%AE%E9%A1%9E%0A"></a>
+<c4d-content-block-heading data-autoid="c4d--content-block__heading" role="heading">
+            
+                
+                    
+
+     
+    プロンプトの種類
+
+
+
+
+
+    
+
+
+                
+                
+            
+        </c4d-content-block-heading>
+</div>
+<c4d-content-block-copy data-autoid="c4d--content-block__copy" slot="copy">
+<c4d-content-block-paragraph>
+<div class="cms-richtext" data-dynamic-inner-content="description" id="rich-text-bc5fde74ae">
+<p>LLMを使用する際に生成されるプロンプトには、主に2つのタイプがあります。それらは以下のとおりです。</p>
+</div>
+</c4d-content-block-paragraph>
+</c4d-content-block-copy>
+<c4d-content-block-segmented-item>
+<c4d-content-group-heading>
+      
+
+
+
+  
+    単純なプロンプト
+
+
+
+
+
+
+
+    
+
+
+    </c4d-content-group-heading>
+<c4d-content-item-copy>
+<div class="cms-richtext" data-dynamic-inner-content="description" id="rich-text-f22020d333">
+<p>これは、モデルが応答する単一の指示または質問を含む基本的なプロンプトです。
+これらは通常、会話を開始したり、情報をリクエストしたりするために使用されます。
+単純なプロンプトの例は、「今日の天気は？」などです。
+</p>
+<p> </p>
+</div>
+</c4d-content-item-copy>
+</c4d-content-block-segmented-item>
+<c4d-content-block-segmented-item>
+<c4d-content-group-heading>
+      
+
+
+
+  
+    複雑なプロンプト
+
+
+
+
+
+
+
+    
+
+
+    </c4d-content-group-heading>
+<c4d-content-item-copy>
+<div class="cms-richtext" data-dynamic-inner-content="description" id="rich-text-11daab2a92">
+<p>このプロンプトには、モデルが一連のアクションを実行したり、詳細な応答を提供したりすることを必要とする複数の指示や質問が含まれています。これらはたいてい、高度なタスクを実行したり、より深い会話を行ったりするために使用されます。複雑なプロンプトの例は、「ヴィーガン料理を提供し、午後10時まで営業しているレストランを探しています。おすすめのお店はありますか」などです。</p>
+</div>
+</c4d-content-item-copy>
+</c4d-content-block-segmented-item>
+</c4d-content-block-segmented>
+<div horizontal-ruler="">
+<c4d-hr></c4d-hr>
+</div>
+</div>
+<div class="complex-narrative">
+<c4d-content-block-segmented class="complex-narrative-container" content-section-body="" data-autoid="c4d-content-block-segmented" no-aside="">
+<div slot="heading">
+<a data-title="プロンプトの種類" name="%E3%83%97%E3%83%AD%E3%83%B3%E3%83%97%E3%83%88%E3%81%AE%E7%A8%AE%E9%A1%9E"></a>
+<c4d-content-block-heading data-autoid="c4d--content-block__heading" role="heading">
+            
+                
+                    
+
+     
+    複雑なプロンプトを単純化する方法
+
+
+
+
+
+    
+
+
+                
+                
+            
+        </c4d-content-block-heading>
+</div>
+<c4d-content-block-copy data-autoid="c4d--content-block__copy" slot="copy">
+<c4d-content-block-paragraph>
+<div class="cms-richtext" data-dynamic-inner-content="description" id="rich-text-fa577aa46f">
+<p>複雑なプロンプトを一連の単純なプロンプトに変換すると、複雑なタスクをより小さなサブタスクに分割するのに役立ちます。このアプローチにより、ユーザーはリクエストを完了するために必要な手順を理解しやすくなり、エラーや誤解のリスクが軽減されます。</p>
+</div>
+</c4d-content-block-paragraph>
+</c4d-content-block-copy>
+<div class="c4d-image-with-caption--author" slot="media">
+<c4d-image alt="プロンプト・チェーンのワークフローの図" class="" default-src="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/71/e1/prompt-chaining-example-block.component.complex-narrative-xl.ts=1729533843106.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative_1139649249/image" heading="複雑なプロンプトから単純なプロンプトへの変換" id="image-1690455445" slot="media">
+<c4d-image-item media="(min-width: 1312px) and (min-resolution: 192dpi)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/71/e1/prompt-chaining-example-block.component.complex-narrative-xl-retina.ts=1729533843106.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative_1139649249/image"></c4d-image-item>
+<c4d-image-item media="(min-width: 1312px)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/71/e1/prompt-chaining-example-block.component.complex-narrative-xl.ts=1729533843106.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative_1139649249/image"></c4d-image-item>
+<c4d-image-item media="(min-width: 1056px) and (min-resolution: 192dpi)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/71/e1/prompt-chaining-example-block.component.complex-narrative-l-retina.ts=1729533843106.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative_1139649249/image"></c4d-image-item>
+<c4d-image-item media="(min-width: 1056px)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/71/e1/prompt-chaining-example-block.component.complex-narrative-l.ts=1729533843106.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative_1139649249/image"></c4d-image-item>
+<c4d-image-item media="(min-width: 672px) and (min-resolution: 192dpi)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/71/e1/prompt-chaining-example-block.component.complex-narrative-m-retina.ts=1729533843106.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative_1139649249/image"></c4d-image-item>
+<c4d-image-item media="(min-width: 672px)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/71/e1/prompt-chaining-example-block.component.complex-narrative-m.ts=1729533843106.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative_1139649249/image"></c4d-image-item>
+<c4d-image-item media="(min-width: 481px) and (min-resolution: 192dpi)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/71/e1/prompt-chaining-example-block.component.complex-narrative-s-retina.ts=1729533843106.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative_1139649249/image"></c4d-image-item>
+<c4d-image-item media="(min-width: 481px)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/71/e1/prompt-chaining-example-block.component.complex-narrative-s.ts=1729533843106.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative_1139649249/image"></c4d-image-item>
+<c4d-image-item media="(max-width: 480px) and (min-resolution: 192dpi)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/71/e1/prompt-chaining-example-block.component.complex-narrative-xs-retina.ts=1729533843106.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative_1139649249/image"></c4d-image-item>
+<c4d-image-item media="(max-width: 480px)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/71/e1/prompt-chaining-example-block.component.complex-narrative-xs.ts=1729533843106.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative_1139649249/image"></c4d-image-item>
+</c4d-image>
+</div>
+<c4d-content-block-segmented-item>
+<c4d-content-group-heading>
+      
+
+
+
+  
+    例：言語翻訳
+
+
+
+
+
+
+
+    
+
+
+    </c4d-content-group-heading>
+<c4d-content-item-copy>
+<div class="cms-richtext" data-dynamic-inner-content="description" id="rich-text-a1cac4c62d">
+<p>スペイン語による情報があるというシナリオを考えてみましょう。テキストから情報を抽出する必要がありますが、スペイン語がわかりません。まず、テキストをスペイン語から英語に翻訳する必要があります。次に、質問をして情報を抽出し、抽出した情報を英語からスペイン語に再度翻訳する必要があります。これは複雑なタスクであり、これらのステップを1つのプロンプトにまとめようとすると、複雑になりすぎて、応答においてエラーが増える可能性が高くなります。そのため、複雑なプロンプトを一連の単純なプロンプトに変換するのが最善です。これを行うための手順は次のとおりです。</p>
+<ol><li>プロンプトの主な目標または目的を特定します。</li><li>メインの目標をいくつかのサブタスク、つまり個別度の高いアクションやタスクに分解します。</li><li>個別のアクションまたはタスクごとにプロンプトを作成します。</li><li>各プロンプトは明確、簡潔、曖昧さのないものにします。</li><li>プロンプトをテストして、理解しやすく包括的なものであることを確認します。</li></ol>
+<p>この例での複雑なプロンプトは次のようなものです。「与えられたテキストをスペイン語として処理してください。それを英語に翻訳してください。このテキストで使用されているすべての統計とファクトを見つけて、箇条書きでリストしてください。結果をもう一度スペイン語に翻訳してください。」</p>
+<p>この複雑なプロンプトを単純なプロンプトに変換するには、主な目標をいくつかの小さなアクションまたはタスクに分割し、以下のようなプロンプトのチェーンを作成します。</p>
+<ol><li>「与えられたスペイン語のテキストを読んでください。」</li><li>「テキストを英語に翻訳してください。」</li><li>「テキストから統計とファクトを取り出してください。」</li><li>「取り出したすべてのファクトの箇条書きリストを作成してください。」</li><li>「それをスペイン語に翻訳してください。」</li></ol>
+</div>
+</c4d-content-item-copy>
+<c4d-image alt="プロンプト・チェーンの例の図" class="" default-src="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/7e/a8/prompt-chaining-translation-example-flow.component.complex-narrative-xl.ts=1729533848103.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative_1139649249/items/content_group_copy_c_767976740/image" heading="プロンプト・チェーンの例 - 翻訳と情報抽出 " id="image-1101163316" slot="media">
+<c4d-image-item media="(min-width: 1312px) and (min-resolution: 192dpi)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/7e/a8/prompt-chaining-translation-example-flow.component.complex-narrative-xl-retina.ts=1729533848103.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative_1139649249/items/content_group_copy_c_767976740/image"></c4d-image-item>
+<c4d-image-item media="(min-width: 1312px)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/7e/a8/prompt-chaining-translation-example-flow.component.complex-narrative-xl.ts=1729533848103.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative_1139649249/items/content_group_copy_c_767976740/image"></c4d-image-item>
+<c4d-image-item media="(min-width: 1056px) and (min-resolution: 192dpi)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/7e/a8/prompt-chaining-translation-example-flow.component.complex-narrative-l-retina.ts=1729533848103.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative_1139649249/items/content_group_copy_c_767976740/image"></c4d-image-item>
+<c4d-image-item media="(min-width: 1056px)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/7e/a8/prompt-chaining-translation-example-flow.component.complex-narrative-l.ts=1729533848103.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative_1139649249/items/content_group_copy_c_767976740/image"></c4d-image-item>
+<c4d-image-item media="(min-width: 672px) and (min-resolution: 192dpi)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/7e/a8/prompt-chaining-translation-example-flow.component.complex-narrative-m-retina.ts=1729533848103.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative_1139649249/items/content_group_copy_c_767976740/image"></c4d-image-item>
+<c4d-image-item media="(min-width: 672px)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/7e/a8/prompt-chaining-translation-example-flow.component.complex-narrative-m.ts=1729533848103.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative_1139649249/items/content_group_copy_c_767976740/image"></c4d-image-item>
+<c4d-image-item media="(min-width: 481px) and (min-resolution: 192dpi)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/7e/a8/prompt-chaining-translation-example-flow.component.complex-narrative-s-retina.ts=1729533848103.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative_1139649249/items/content_group_copy_c_767976740/image"></c4d-image-item>
+<c4d-image-item media="(min-width: 481px)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/7e/a8/prompt-chaining-translation-example-flow.component.complex-narrative-s.ts=1729533848103.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative_1139649249/items/content_group_copy_c_767976740/image"></c4d-image-item>
+<c4d-image-item media="(max-width: 480px) and (min-resolution: 192dpi)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/7e/a8/prompt-chaining-translation-example-flow.component.complex-narrative-xs-retina.ts=1729533848103.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative_1139649249/items/content_group_copy_c_767976740/image"></c4d-image-item>
+<c4d-image-item media="(max-width: 480px)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/7e/a8/prompt-chaining-translation-example-flow.component.complex-narrative-xs.ts=1729533848103.png/content/adobe-cms/jp/ja/topics/prompt-chaining/jcr:content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative_1139649249/items/content_group_copy_c_767976740/image"></c4d-image-item>
+</c4d-image>
+</c4d-content-block-segmented-item>
+</c4d-content-block-segmented>
+<div horizontal-ruler="">
+<c4d-hr></c4d-hr>
+</div>
+</div>
+<div class="mixed-series">
+<div>
+<div class="cds--col-lg-12 cds--no-gutter">
+<c4d-content-block content-section-body="">
+<div slot="heading">
+<a data-title="構造化プロンプト・チェーンの構築" name="%E6%A7%8B%E9%80%A0%E5%8C%96%E3%83%97%E3%83%AD%E3%83%B3%E3%83%97%E3%83%88%E3%83%BB%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%81%AE%E6%A7%8B%E7%AF%89"></a>
+<c4d-content-block-heading>
+                        
+                            
+                                
+
+     
+    プロンプト・チェーンを構築する方法
+
+
+
+
+    
+
+
+                            
+                            
+                        
+                    </c4d-content-block-heading>
+</div>
+<c4d-content-block-copy>
+<c4d-content-block-paragraph>
+<div class="cms-richtext" data-dynamic-inner-content="description" id="rich-text-422b0aef0e">
+<p>構造化プロンプト・チェーンは、事前に定義された一連のプロンプトまたは質問であり、特定の会話や一連のアクションを通じてユーザーをガイドし、情報の流れが整合性のある制御されたものとなるように設計されています<sup><a href="#f04" rel="noopener noreferrer" target="_self">[4]</a></sup>。カスタマー・サポート、チュートリアル、その他の対話システムにおいて、対話の明瞭性、正確性、効率性を維持するためによく使用されます。チェーン内のプロンプトは通常、相互にリンクされているため、システムは以前の応答に基づいて構築し、コンテキストを維持することができます。このアプローチは、曖昧さを減らし、ユーザーの満足度を向上させ、人間と機械のより効果的なコミュニケーションを可能にします。</p>
+</div>
+</c4d-content-block-paragraph>
+</c4d-content-block-copy>
+<div class="cmp-container" id="mixed-series-container-595dc26b5a">
+<div class="simple-series">
+<c4d-content-group-simple>
+<div class="cmp-container" id="simple-series-items-container-dfeda041b0">
+<div class="content-block-item">
+<c4d-content-item class="aem--content-item">
+<c4d-content-item-heading>
+        
+
+
+
+  
+    さまざまなフレーバーのプロンプト・テンプレートを使用して参照ライブラリを構築する
+
+
+
+
+
+
+    
+
+
+    </c4d-content-item-heading>
+<c4d-content-item-copy>
+<c4d-content-item-paragraph>
+<div class="cms-richtext" data-dynamic-inner-content="description" id="rich-text-75bff132ea">
+<p>まず、さまざまなシナリオに合わせてカスタマイズできる、事前に作成されたプロンプトのコレクションを収集します。これらのテンプレートは、ユーザーが遭遇する可能性のある一般的なタスク、リクエスト、質問をカバーする必要があります。</p>
+</div>
+</c4d-content-item-paragraph>
+</c4d-content-item-copy>
+</c4d-content-item>
+
+</div>
+<div class="content-block-item">
+<c4d-content-item class="aem--content-item">
+<c4d-content-item-heading>
+        
+
+
+
+  
+    主要なプロンプトを定義する
+
+
+
+
+
+
+    
+
+
+    </c4d-content-item-heading>
+<c4d-content-item-copy>
+<c4d-content-item-paragraph>
+<div class="cms-richtext" data-dynamic-inner-content="description" id="rich-text-066cb73b71">
+<p>プロンプト・チェーンで伝える必要がある主要な質問や指示を特定します。これらのプロンプトは、単純、明確、直接的であるべきであり、個別のプロンプトとして独立できるものでなければなりません。</p>
+</div>
+</c4d-content-item-paragraph>
+</c4d-content-item-copy>
+</c4d-content-item>
+</div>
+<div class="content-block-item">
+<c4d-content-item class="aem--content-item">
+<c4d-content-item-heading>
+        
+
+
+
+  
+    一連のプロンプトの入力と出力を特定する
+
+
+
+
+
+
+    
+
+
+    </c4d-content-item-heading>
+<c4d-content-item-copy>
+<c4d-content-item-paragraph>
+<div class="cms-richtext" data-dynamic-inner-content="description" id="rich-text-3c0486f8ba">
+<p>各プロンプトに対してユーザーが提供する必要がある特定の情報またはアクションを決定します。これらの入力は明確に定義され、理解しやすいものである必要があり、プロンプト・チェーン内の対応するプロンプトに関連している必要があります。 </p>
+</div>
+</c4d-content-item-paragraph>
+</c4d-content-item-copy>
+</c4d-content-item>
+</div>
+<div class="content-block-item">
+<c4d-content-item class="aem--content-item">
+<c4d-content-item-heading>
+        
+
+
+
+  
+    プロンプト・チェーン全体を実装する
+
+
+
+
+
+
+    
+
+
+    </c4d-content-item-heading>
+<c4d-content-item-copy>
+<c4d-content-item-paragraph>
+<div class="cms-richtext" data-dynamic-inner-content="description" id="rich-text-a88d9b06d5">
+<p>参照ライブラリとプライマリ・プロンプトを使用して、完全なプロンプト・チェーンを構築します。各プロンプトが次のプロンプトに論理的に関連していること、およびチェーン内の適切なポイントでユーザーに必要な入力を求めるプロンプトが表示されることを確認します。</p>
+</div>
+</c4d-content-item-paragraph>
+</c4d-content-item-copy>
+</c4d-content-item>
+</div>
+<div class="content-block-item">
+<c4d-content-item class="aem--content-item">
+<c4d-content-item-heading>
+        
+
+
+
+  
+    プロンプト・チェーンをテストする
+
+
+
+
+
+
+    
+
+
+    </c4d-content-item-heading>
+<c4d-content-item-copy>
+<c4d-content-item-paragraph>
+<div class="cms-richtext" data-dynamic-inner-content="description" id="rich-text-85a26deb27">
+<p>プロンプト・チェーンの構築が完了したら、徹底的にテストして、理解しやすく、簡単に完了できることを確認します。テスト・ユーザーにプロンプト・チェーンを実施してもらい、改善すべき領域に関するフィードバックを収集します。</p>
+</div>
+</c4d-content-item-paragraph>
+</c4d-content-item-copy>
+</c4d-content-item>
+</div>
+<div class="content-block-item">
+<c4d-content-item class="aem--content-item">
+<c4d-content-item-heading>
+        
+
+
+
+  
+    プロンプト・チェーンを反復して改良する
+
+
+
+
+
+
+    
+
+
+    </c4d-content-item-heading>
+<c4d-content-item-copy>
+<c4d-content-item-paragraph>
+<div class="cms-richtext" data-dynamic-inner-content="description" id="rich-text-0f71d145cb">
+<p>テスト中に受け取ったフィードバックに基づいて、プロンプト・チェーンに必要な調整や改善を加えます。これには、特定のプロンプトの書き換え、プロンプトの追加または削除、またはプロンプトが表示される順序の変更が含まれる場合があります。</p>
+</div>
+</c4d-content-item-paragraph>
+</c4d-content-item-copy>
+</c4d-content-item>
+</div>
+<div class="content-block-item">
+<c4d-content-item class="aem--content-item">
+<c4d-content-item-heading>
+</c4d-content-item-heading>
+<c4d-content-item-copy>
+<c4d-content-item-paragraph>
+<div class="cms-richtext" data-dynamic-inner-content="description" id="rich-text-55fb408a30">
+<p>ここまでの手順に従うことで、カスタマー・サービス担当者とプログラマーは、一連のアクションやタスクを通じてユーザーをガイドするのに役立つ効果的かつ効率的なプロンプト・チェーンを構築できます。</p>
+</div>
+</c4d-content-item-paragraph>
+</c4d-content-item-copy>
+</c4d-content-item>
+</div>
+</div>
+</c4d-content-group-simple>
+
+</div>
+<div class="pictogram-series">
+<c4d-content-block>
+<c4d-content-group-heading size="md">
+                
+                
+
+
+
+  
+    プロンプト・チェーンの利点
+
+
+
+
+
+
+    
+
+
+            </c4d-content-group-heading>
+<c4d-content-group-copy slot="copy">
+<c4d-content-group-paragraph>
+<div class="cms-richtext" data-dynamic-inner-content="description" id="rich-text-1f96580dea">
+<p>プロンプト・チェーンは、<a href="https://www.ibm.com/jp-ja/topics/prompt-engineering" rel="noopener noreferrer" target="_self">プロンプト・エンジニアリング</a>で使用される従来の方法に比べていくつかの利点があります。一連のプロンプトを通じてモデルをガイドすることにより、プロンプト・チェーンは<a href="https://www.ibm.com/jp-ja/topics/text-generation" rel="noopener noreferrer" target="_self">テキスト生成</a>の一貫性と整合性を高め、より正確で価値のある出力を実現します。</p>
+</div>
+</c4d-content-group-paragraph>
+</c4d-content-group-copy>
+<div class="cmp-container" id="pictogram-items-container-219afe0d2e">
+<div class="pictogram-item">
+<c4d-content-item horizontal="">
+<svg class="construct cds--pictogram-item__pictogram" data-autoid="c4d--pictogram-item__pictogram" fill="currentColor" focusable="false" height="80" role="img" slot="media" viewbox="0 0 80 80" width="80">
+<use height="80" href="#construct" width="80"></use>
+<defs>
+<lineargradient gradienttransform="rotate(90)" id="pictogram-color-gradient-180-blue-to-purple">
+<stop offset="0%" stop-color="#0f62fe"></stop>
+<stop offset="100%" stop-color="#8a3ffc"></stop>
+</lineargradient>
+<lineargradient gradienttransform="rotate(90)" id="pictogram-color-gradient-180-blue-dark-to-light">
+<stop offset="0%" stop-color="#0f62fe"></stop>
+<stop offset="100%" stop-color="#78a9ff"></stop>
+</lineargradient>
+<lineargradient gradienttransform="rotate(90)" id="pictogram-color-gradient-180-blue-to-teal">
+<stop offset="0%" stop-color="#0f62fe"></stop>
+<stop offset="100%" stop-color="#08bdba"></stop>
+</lineargradient>
+<lineargradient gradienttransform="rotate(90)" id="pictogram-color-gradient-180-blue-to-magenta">
+<stop offset="0%" stop-color="#0f62fe"></stop>
+<stop offset="100%" stop-color="#ff7eb6"></stop>
+</lineargradient>
+<lineargradient gradienttransform="rotate(90)" id="pictogram-color-gradient-180-red-to-purple">
+<stop offset="0%" stop-color="#fa4d56"></stop>
+<stop offset="100%" stop-color="#a56eff"></stop>
+</lineargradient>
+<lineargradient id="pictogram-color-blue-80">
+<stop stop-color="#002d9c"></stop>
+</lineargradient>
+<lineargradient id="pictogram-color-blue-80">
+<stop stop-color="#002d9c"></stop>
+</lineargradient>
+<lineargradient id="pictogram-color-blue-60">
+<stop stop-color="#0f62fe"></stop>
+</lineargradient>
+<lineargradient id="pictogram-color-cyan-50">
+<stop stop-color="#1192E8"></stop>
+</lineargradient>
+<lineargradient id="pictogram-color-purple-60">
+<stop stop-color="#8A3FFC"></stop>
+</lineargradient>
+<lineargradient id="pictogram-color-green-50">
+<stop stop-color="#24a148"></stop>
+</lineargradient>
+<lineargradient id="pictogram-color-teal-50">
+<stop stop-color="#009d9a"></stop>
+</lineargradient>
+<lineargradient id="pictogram-color-magenta-50">
+<stop stop-color="#EE5396"></stop>
+</lineargradient>
+<lineargradient id="pictogram-color-red-60">
+<stop stop-color="#DA1E28"></stop>
+</lineargradient>
+</defs>
+</svg>
+<div class="pictogram-svg-source">
+<svg id="construct" viewbox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"></svg>
+</div>
+<c4d-content-item-heading>
+        
+
+
+
+  
+    一貫性
+
+
+
+
+
+
+    
+
+
+    </c4d-content-item-heading>
+<c4d-content-item-paragraph>
+<div class="cms-richtext" data-dynamic-inner-content="description" id="rich-text-d24aab0c40">
+<p>モデルが一連のプロンプトに従うように要求することにより、プロンプト・チェーンは<a href="https://www.ibm.com/jp-ja/topics/text-generation" rel="noopener noreferrer" target="_self">テキスト生成</a>における整合性を維持するのに役立ちます。これは、カスタマー・サポートや編集者の役割など、整合性のあるトーン、スタイル、またはフォーマットを維持することが非常に重要な用途では特に重要です<sup><a href="#f05" rel="noopener noreferrer" target="_self">[5]</a></sup>。</p>
+<p>カスタマー・サポートでは、プロンプト・チェーンを使用してユーザーとの整合性のあるコミュニケーションを確保できます。例えば、ボットは、ユーザーに対する呼びかけでユーザーの好みの名前を使用したり、会話全体を通じて特定の声の調子に従うように求められたりする場合があります。</p>
+</div>
+</c4d-content-item-paragraph>
+<c4d-link-with-icon cta-type="local" data-dynamic-properties='{"ctaUrl":"href"}' data-link-type="local" href="https://www.ibm.com/jp-ja/products/watsonx-assistant/customer-service" icon-placement="right" target="_self">
+<span class="cds--link-text" data-dynamic-inner-content="ctaLabel" data-link-text="">watsonx Assistantを使用してカスタマー・サービスAIアシスタントを構築する</span>
+<!-- LTR - Left to Right version -->
+<svg aria-hidden="true" fill="currentColor" focusable="false" height="20" slot="icon" viewbox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+
+</svg>
+<!-- RTL - Right to Left version -->
+</c4d-link-with-icon>
+</c4d-content-item>
+</div>
+<div class="pictogram-item">
+<c4d-content-item horizontal="">
+<svg class="target cds--pictogram-item__pictogram" data-autoid="c4d--pictogram-item__pictogram" fill="currentColor" focusable="false" height="80" role="img" slot="media" viewbox="0 0 80 80" width="80">
+<use height="80" href="#target" width="80"></use>
+<defs>
+<lineargradient gradienttransform="rotate(90)" id="pictogram-color-gradient-180-blue-to-purple">
+<stop offset="0%" stop-color="#0f62fe"></stop>
+<stop offset="100%" stop-color="#8a3ffc"></stop>
+</lineargradient>
+<lineargradient gradienttransform="rotate(90)" id="pictogram-color-gradient-180-blue-dark-to-light">
+<stop offset="0%" stop-color="#0f62fe"></stop>
+<stop offset="100%" stop-color="#78a9ff"></stop>
+</lineargradient>
+<lineargradient gradienttransform="rotate(90)" id="pictogram-color-gradient-180-blue-to-teal">
+<stop offset="0%" stop-color="#0f62fe"></stop>
+<stop offset="100%" stop-color="#08bdba"></stop>
+</lineargradient>
+<lineargradient gradienttransform="rotate(90)" id="pictogram-color-gradient-180-blue-to-magenta">
+<stop offset="0%" stop-color="#0f62fe"></stop>
+<stop offset="100%" stop-color="#ff7eb6"></stop>
+</lineargradient>
+<lineargradient gradienttransform="rotate(90)" id="pictogram-color-gradient-180-red-to-purple">
+<stop offset="0%" stop-color="#fa4d56"></stop>
+<stop offset="100%" stop-color="#a56eff"></stop>
+</lineargradient>
+<lineargradient id="pictogram-color-blue-80">
+<stop stop-color="#002d9c"></stop>
+</lineargradient>
+<lineargradient id="pictogram-color-blue-80">
+<stop stop-color="#002d9c"></stop>
+</lineargradient>
+<lineargradient id="pictogram-color-blue-60">
+<stop stop-color="#0f62fe"></stop>
+</lineargradient>
+<lineargradient id="pictogram-color-cyan-50">
+<stop stop-color="#1192E8"></stop>
+</lineargradient>
+<lineargradient id="pictogram-color-purple-60">
+<stop stop-color="#8A3FFC"></stop>
+</lineargradient>
+<lineargradient id="pictogram-color-green-50">
+<stop stop-color="#24a148"></stop>
+</lineargradient>
+<lineargradient id="pictogram-color-teal-50">
+<stop stop-color="#009d9a"></stop>
+</lineargradient>
+<lineargradient id="pictogram-color-magenta-50">
+<stop stop-color="#EE5396"></stop>
+</lineargradient>
+<lineargradient id="pictogram-color-red-60">
+<stop stop-color="#DA1E28"></stop>
+</lineargradient>
+</defs>
+</svg>
+<div class="pictogram-svg-source">
+<svg id="target" viewbox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"></svg>
+</div>
+<c4d-content-item-heading>
+        
+
+
+
+  
+    コントロールの強化
+
+
+
+
+
+
+    
+
+
+    </c4d-content-item-heading>
+<c4d-content-item-paragraph>
+<div class="cms-richtext" data-dynamic-inner-content="description" id="rich-text-3a5712d163">
+<p>プロンプト・チェーンにより、<a href="https://www.ibm.com/jp-ja/topics/text-generation" rel="noopener noreferrer" target="_self">テキスト生成</a>をより詳細に制御できるようになり、ユーザーは目的の出力を正確に指定できるようになります。これは、入力データが曖昧であったりノイズが多かったりする状況で特に有用であり、モデルに対して応答を生成する前に入力を明確にしたり絞り込んだりするよう求めることができます<sup><a href="#f06" rel="noopener noreferrer" target="_self">[6]</a></sup>。</p>
+<p>テキスト要約システムでは、プロンプト・チェーンにより、ユーザーは生成される要約の詳細レベルと具体性を制御できます。例えば、ユーザーはまず、研究論文など、要約したいコンテンツを提供するように求められます。続くプロンプトでは、その要約を特定の書式やテンプレートでフォーマットするように求められます。<br/>
+</p>
+</div>
+</c4d-content-item-paragraph>
+<c4d-link-with-icon cta-type="video" data-dynamic-properties='{"ctaUrl":"href"}' data-link-type="video" href="1_etqa4raz" icon-placement="right" target="_blank" x-cq-linkchecker="skip">
+<span class="cds--link-text" data-dynamic-inner-content="ctaLabel" data-link-text="">watsonx.aiを使用してテキスト要約タスクを実行する方法をご覧ください（2:19）</span>
+<!-- LTR - Left to Right version -->
+<!-- RTL - Right to Left version -->
+<svg aria-hidden="true" fill="currentColor" focusable="false" height="20" slot="icon" viewbox="0 0 32 32" width="20" xmlns="http://www.w3.org/2000/svg">
+
+
+</svg>
+</c4d-link-with-icon>
+</c4d-content-item>
+</div>
+<div class="pictogram-item">
+<c4d-content-item horizontal="">
+<svg class="chart--error-bar cds--pictogram-item__pictogram" data-autoid="c4d--pictogram-item__pictogram" fill="currentColor" focusable="false" height="80" role="img" slot="media" viewbox="0 0 80 80" width="80">
+<use height="80" href="#chart--error-bar" width="80"></use>
+<defs>
+<lineargradient gradienttransform="rotate(90)" id="pictogram-color-gradient-180-blue-to-purple">
+<stop offset="0%" stop-color="#0f62fe"></stop>
+<stop offset="100%" stop-color="#8a3ffc"></stop>
+</lineargradient>
+<lineargradient gradienttransform="rotate(90)" id="pictogram-color-gradient-180-blue-dark-to-light">
+<stop offset="0%" stop-color="#0f62fe"></stop>
+<stop offset="100%" stop-color="#78a9ff"></stop>
+</lineargradient>
+<lineargradient gradienttransform="rotate(90)" id="pictogram-color-gradient-180-blue-to-teal">
+<stop offset="0%" stop-color="#0f62fe"></stop>
+<stop offset="100%" stop-color="#08bdba"></stop>
+</lineargradient>
+<lineargradient gradienttransform="rotate(90)" id="pictogram-color-gradient-180-blue-to-magenta">
+<stop offset="0%" stop-color="#0f62fe"></stop>
+<stop offset="100%" stop-color="#ff7eb6"></stop>
+</lineargradient>
+<lineargradient gradienttransform="rotate(90)" id="pictogram-color-gradient-180-red-to-purple">
+<stop offset="0%" stop-color="#fa4d56"></stop>
+<stop offset="100%" stop-color="#a56eff"></stop>
+</lineargradient>
+<lineargradient id="pictogram-color-blue-80">
+<stop stop-color="#002d9c"></stop>
+</lineargradient>
+<lineargradient id="pictogram-color-blue-80">
+<stop stop-color="#002d9c"></stop>
+</lineargradient>
+<lineargradient id="pictogram-color-blue-60">
+<stop stop-color="#0f62fe"></stop>
+</lineargradient>
+<lineargradient id="pictogram-color-cyan-50">
+<stop stop-color="#1192E8"></stop>
+</lineargradient>
+<lineargradient id="pictogram-color-purple-60">
+<stop stop-color="#8A3FFC"></stop>
+</lineargradient>
+<lineargradient id="pictogram-color-green-50">
+<stop stop-color="#24a148"></stop>
+</lineargradient>
+<lineargradient id="pictogram-color-teal-50">
+<stop stop-color="#009d9a"></stop>
+</lineargradient>
+<lineargradient id="pictogram-color-magenta-50">
+<stop stop-color="#EE5396"></stop>
+</lineargradient>
+<lineargradient id="pictogram-color-red-60">
+<stop stop-color="#DA1E28"></stop>
+</lineargradient>
+</defs>
+</svg>
+<div class="pictogram-svg-source">
+<svg id="chart--error-bar" viewbox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"></svg>
+</div>
+<c4d-content-item-heading>
+        
+
+
+
+  
+    エラー率の低減
+
+
+
+
+
+
+    
+
+
+    </c4d-content-item-heading>
+<c4d-content-item-paragraph>
+<div class="cms-richtext" data-dynamic-inner-content="description" id="rich-text-dc6721b2d1">
+<p>プロンプト・チェーンは、より適切なコンテキストとより焦点を絞った入力をモデルに提供することで、エラー率を減らすのに役立ちます。構造化プロンプト・チェーンは、人的労力を軽減し、コードと出力をより迅速に検証するのに役立ちます。入力をより小さく扱いやすいプロンプトに分割することで、モデルはユーザーの意図をより適正に理解し、より正確で関連性の高い応答を生成できます<sup><a href="#f07" rel="noopener noreferrer" target="_self">[7]</a></sup>。</p>
+<p>機械翻訳システムでは、文を翻訳する前に、システムはまずユーザーにソース言語、ターゲット言語、関連するコンテキストや用語を指定するよう求めることがあります。これにより、モデルはソース・テキストをより適正に理解し、正確な翻訳を生成できます。</p>
+</div>
+</c4d-content-item-paragraph>
+</c4d-content-item>
+</div>
+</div>
+</c4d-content-block>
+
+</div>
+</div>
+<c4d-content-group class="cds--content-block-mixed__outro">
+<c4d-content-group-copy>
+<c4d-content-group-paragraph>
+<div class="cms-richtext" data-dynamic-inner-content="description" id="rich-text-6ae81cb00f">
+<p>これらの利点を活用することで、プロンプト・チェーンには、カスタマー・サポートから効率化された編集や言語翻訳に至るまで、さまざまな用途においてNLPモデルのパフォーマンスと有効性を大幅に向上させる可能性があります。</p>
+</div>
+</c4d-content-group-paragraph>
+</c4d-content-group-copy>
+</c4d-content-group>
+</c4d-content-block>
+</div>
+</div>
+<div horizontal-ruler="">
+<c4d-hr></c4d-hr>
+</div>
+
+</div>
+<div class="complex-narrative">
+<c4d-content-block-segmented class="complex-narrative-container" content-section-body="" data-autoid="c4d-content-block-segmented" no-aside="" no-image="">
+<div slot="heading">
+<a data-title="プロンプト・チェーンのユースケース" name="%E3%83%97%E3%83%AD%E3%83%B3%E3%83%97%E3%83%88%E3%83%BB%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%81%AE%E3%83%A6%E3%83%BC%E3%82%B9%E3%82%B1%E3%83%BC%E3%82%B9"></a>
+<c4d-content-block-heading data-autoid="c4d--content-block__heading" role="heading">
+            
+                
+                    
+
+     
+    プロンプト・チェーンのユースケース
+
+
+
+
+    
+
+
+                
+                
+            
+        </c4d-content-block-heading>
+</div>
+<c4d-content-block-copy data-autoid="c4d--content-block__copy" slot="copy">
+<c4d-content-block-paragraph>
+<div class="cms-richtext" data-dynamic-inner-content="description" id="rich-text-e3d6f2066b">
+<p>プロンプト・チェーンは、幅広いユースケースに適用できる汎用性の高い手法で、主に質問への回答とマルチステップ・タスクの2つのカテゴリーに分類されます。</p>
+<p> </p>
+</div>
+</c4d-content-block-paragraph>
+</c4d-content-block-copy>
+<c4d-content-block-segmented-item>
+<c4d-content-group-heading>
+      
+
+
+
+  
+    質問への回答
+
+
+
+
+
+
+    
+
+
+    </c4d-content-group-heading>
+<c4d-content-item-copy>
+<div class="cms-richtext" data-dynamic-inner-content="description" id="rich-text-5960482895">
+<p>質問への回答タスクは、その名のとおり、人間から寄せられるよくある質問に対する回答を提供します。このモデルは、一般的にナレッジ・ベースにあるドキュメントのコンテキストに基づいて回答を自動化します。一般的な用途には、以下のようなものがあります。<br/>
+</p>
+<ul><li><strong>カスタマー・サービス／サポート：</strong>プロンプト・チェーンは、ユーザーが企業のナレッジ・ベースに対してクエリを実行して最も関連性の高い回答を見つけるのに役立ち、ユーザー・エクスペリエンスと効率性を向上させます<sup><a href="#f08" rel="noopener noreferrer" target="_self">[8]</a></sup>。</li><li><strong>教育プラットフォーム：</strong>インストラクターは、生徒の学習の進捗状況に基づいて質問を促すことで、インタラクティブな学習体験を作り出すことができ、パーソナライズされた適応型学習が可能になります<sup><a href="#f09">[9]</a></sup>。</li><li><strong>研究支援：</strong>研究者は、プロンプト・チェーンを使用して関連文献の検索と分析のプロセスを自動化し、時間とリソースを節約することができます<sup><a href="#f03" rel="noopener noreferrer" target="_self">[</a><a href="#f03" rel="noopener noreferrer" target="_self">3</a><a href="#f03" rel="noopener noreferrer" target="_self">]</a><a href="#f10">[10]</a></sup>。</li></ul>
+</div>
+</c4d-content-item-copy>
+</c4d-content-block-segmented-item>
+<c4d-content-block-segmented-item>
+<c4d-content-group-heading>
+      
+
+
+
+  
+    マルチステップのタスク
+
+
+
+
+
+
+    
+
+
+    </c4d-content-group-heading>
+<c4d-content-item-copy>
+<div class="cms-richtext" data-dynamic-inner-content="description" id="rich-text-02091057cd">
+<p>予想できるとおり、マルチステップのタスクは、特定の目標を達成するための一連のステップで構成されています。これには、次のようなものがあります。<br/>
+</p>
+<ul><li><strong>コンテンツ作成：</strong>プロンプト・チェーンは、トピックの調査、アウトラインの作成、記事の執筆、コンテンツの検証、編集など、コンテンツ作成プロセスのさまざまな段階を効率化できます<sup><a href="#f11" rel="noopener noreferrer" target="_self">[11]</a><a href="#f12" rel="noopener noreferrer" target="_self">[12]</a></sup>。</li><li><strong>プログラミング開発</strong>：プロンプト・チェーンは、基本的なロジックから始めて、疑似コードに進み、最終的には特定の言語で特定のコードを実装するという一連のステップを通じて開発者をガイドし、コードの検証も保証します<sup><a href="#f03" rel="noopener noreferrer" target="_self">[3]</a><a href="#f13" rel="noopener noreferrer" target="_self">[13]</a></sup>。</li><li><strong>パーソナライズされた推奨事項：</strong>このユースケースはさまざまな業界に適用でき、プロンプト・チェーンは、ユーザーの好み、行動、履歴データに基づいて推奨事項を調整するのに役立ちます<sup><a href="#f14" rel="noopener noreferrer" target="_self">[14]</a></sup>。</li></ul>
+</div>
+</c4d-content-item-copy>
+</c4d-content-block-segmented-item>
+<c4d-content-block-segmented-item>
+<c4d-content-item-copy>
+<div class="cms-richtext" data-dynamic-inner-content="description" id="rich-text-dd92140b09">
+<p>プロンプト・チェーンは、さまざまなリアルタイムの用途で使用できる強力な手法で、一連のアクションやタスクを通じてユーザーや専門家をガイドするのに役立ちます。複雑なタスクを一連の単純なプロンプトに分割することで、プロンプト・チェーンは、ユーザーと専門家がリクエストを完了するために必要な手順を確実に理解し、全体的なエクスペリエンスを向上させるのに役立ちます。カスタマー・サービス、プログラミング、教育のいずれで使用する場合でも、プロンプト・チェーンは複雑なプロセスを単純化し、効率と精度を向上させるのに役立ちます。</p>
+</div>
+</c4d-content-item-copy>
+</c4d-content-block-segmented-item>
+</c4d-content-block-segmented>
+<div horizontal-ruler="">
+<c4d-hr></c4d-hr>
+</div>
+</div>
+<div class="experiencefragment">
+<div class="cmp-experiencefragment cmp-experiencefragment--related-ai-solutions" id="experiencefragment-5f0f8960f5">
+<div class="xf-content-height">
+<div class="root container responsivegrid">
+<div class="cmp-container" id="container-8f5dab513b">
+<div class="item-horizontal-group">
+<div class="cds--content-block">
+<a data-title="関連製品とソリューション" name="%E9%96%A2%E9%80%A3%E8%A3%BD%E5%93%81%E3%81%A8%E3%82%BD%E3%83%AA%E3%83%A5%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3"></a>
+<c4d-content-block border="">
+<c4d-content-block-heading aria-level="2" data-autoid="c4d--content-block__heading" role="heading" slot="heading">
+                関連製品とソリューション
+            </c4d-content-block-heading>
+<div class="content-item-horizontal">
+<c4d-content-item-row>
+<c4d-content-item-heading>
+            
+
+
+
+  
+    AIコンサルティング・サービス
+
+
+
+
+
+
+    
+
+
+        </c4d-content-item-heading>
+<c4d-content-item-row-media-copy>
+<c4d-content-item-paragraph>
+<div class="cms-richtext" data-dynamic-inner-content="description" id="rich-text-ef48b8948a">
+<p>AIの活用方法を新たに創造する：2万人を超えるAI専門家からなるIBMの多様なグローバル・チームは、お客様が迅速かつ自信を持ってAIと自動化を設計し、ビジネス全体に拡張できるよう支援します。独自のIBM watsonxテクノロジーとパートナーのオープン・エコシステムを連携して、倫理と信頼に基づいて、あらゆるクラウド環境にAIモデルを提供します。<br/>
+</p>
+</div>
+</c4d-content-item-paragraph>
+</c4d-content-item-row-media-copy>
+<c4d-link-list slot="footer" type="vertical">
+<c4d-link-list-item-cta cta-type="local" href="https://www.ibm.com/jp-ja/consulting/artificial-intelligence" icon-placement="right" role="listitem" target="_self">
+            IBMのAIコンサルティング・サービスはこちら
+            
+            
+        </c4d-link-list-item-cta>
+
+</c4d-link-list>
+</c4d-content-item-row>
+
+</div>
+<div class="content-item-horizontal">
+<c4d-content-item-row>
+<c4d-content-item-heading>
+            
+
+
+
+  
+    AI ソリューション
+
+
+
+
+
+
+    
+
+
+        </c4d-content-item-heading>
+<c4d-content-item-row-media-copy>
+<c4d-content-item-paragraph>
+<div class="cms-richtext" data-dynamic-inner-content="description" id="rich-text-f0e026207b">
+<p>ビジネス全体でAIを運用化し、迅速かつ倫理的に効果を発揮します。IBMのビジネス・グレードのAI製品と分析ソリューションの充実した製品群は、AI導入のハードルを下げ、適切なデータ基盤を確立しながら、成果と責任ある活用のために最適化するよう設計されています。</p>
+</div>
+</c4d-content-item-paragraph>
+</c4d-content-item-row-media-copy>
+<c4d-link-list slot="footer" type="vertical">
+<c4d-link-list-item-cta cta-type="local" href="https://www.ibm.com/jp-ja/artificial-intelligence" icon-placement="right" role="listitem" target="_self">
+            IBM AI ソリューションを探索する
+            
+            
+        </c4d-link-list-item-cta>
+</c4d-link-list>
+</c4d-content-item-row>
+<div>
+<hr class="cds--hr"/>
+</div>
+</div>
+<div class="content-item-horizontal">
+<c4d-content-item-row>
+<c4d-content-item-heading>
+            
+
+
+
+  
+    IBM watsonx
+
+
+
+
+
+
+    
+
+
+        </c4d-content-item-heading>
+<c4d-content-item-row-media-copy>
+<c4d-content-item-paragraph>
+<div class="cms-richtext" data-dynamic-inner-content="description" id="rich-text-46ccef34f4">
+<p>IBMの次世代AIとデータのプラットフォームでAIの力を倍増します。IBM watsonxは、ビジネスにすぐに使えるツール、アプリケーション、ソリューションのポートフォリオであり、AI導入のコストとハードルを削減しながら、AIの成果と責任ある使用を最適化するように設計されています。</p>
+</div>
+</c4d-content-item-paragraph>
+</c4d-content-item-row-media-copy>
+<c4d-link-list slot="footer" type="vertical">
+<c4d-link-list-item-cta cta-type="local" href="https://www.ibm.com/jp-ja/watsonx" icon-placement="right" role="listitem" target="_self">
+            watsonxの詳細はこちら
+            
+            
+        </c4d-link-list-item-cta>
+<c4d-link-list-item-cta cta-type="local" href="https://jp-tok.dataplatform.cloud.ibm.com/registration/stepone?context=wx&amp;preselect_region=true" icon-placement="right" role="listitem" target="_blank">
+            watsonx.aiを試す
+            
+            
+        </c4d-link-list-item-cta>
+</c4d-link-list>
+</c4d-content-item-row>
+<div>
+<hr class="cds--hr"/>
+</div>
+</div>
+</c4d-content-block>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="block-card-container container responsivegrid">
+<c4d-content-block-cards content-section-body="">
+<a data-title="参考情報" name="%E5%8F%82%E8%80%83%E6%83%85%E5%A0%B1" slot="heading"></a>
+<c4d-content-block-heading>
+                    
+                        
+                            
+
+     
+    参考情報
+
+
+
+
+    
+
+
+                        
+                        
+                    
+                </c4d-content-block-heading>
+<c4d-card-group cards-per-row="3" class="" grid-mode="condensed" style="--c4d--card-group--cards-in-row: 3;">
+<c4d-card-group-item cta-type="local" data-attribute4="解説者" grid-mode="condensed" href="https://www.ibm.com/jp-ja/topics/langchain" no-poster="true" pictogram-placement="top" target="_self">
+<c4d-card-eyebrow aria-hidden="true" class="cds--card__eyebrow" slot="eyebrow">
+            解説者
+        </c4d-card-eyebrow>
+<!--*/ Added condition to not load hedaing for video as it is coming from video name also - ICIUC- 116*/-->
+<c4d-card-heading aria-level="3" class="cds--card__heading" role="heading" slot="heading">
+            LangChainとは
+        </c4d-card-heading>
+<p>LLMを使用したアプリ開発に一般的に使用されるオープンソース・フレームワークであるLangChainについて説明します。 </p>
+<c4d-card-footer aria-hidden="true" class="cds--card__footer-icon-size" cta-type="local" href="https://www.ibm.com/jp-ja/topics/langchain" icon-placement="right" slot="footer" target="_self">
+</c4d-card-footer>
+<span class="ibm_icon_arrowright_local" slot="icon"></span>
+</c4d-card-group-item>
+<c4d-card-group-item cta-type="local" data-attribute4="チュートリアル" grid-mode="condensed" href="https://dataplatform.cloud.ibm.com/exchange/public/entry/view/c3dbf23a-9a56-4c4b-8ce5-5707828fc981?context=wx" no-poster="true" pictogram-placement="top" target="_self">
+<c4d-card-eyebrow aria-hidden="true" class="cds--card__eyebrow" slot="eyebrow">
+            チュートリアル
+        </c4d-card-eyebrow>
+<!--*/ Added condition to not load hedaing for video as it is coming from video name also - ICIUC- 116*/-->
+<c4d-card-heading aria-level="3" class="cds--card__heading" role="heading" slot="heading">
+            watsonxとLangChainを使用して言語モデルへの一連の呼び出しを行う
+        </c4d-card-heading>
+<p>モデルを連結して一般的な質問への回答システムのシーケンスを生成する方法を学習します。  </p>
+<c4d-card-footer aria-hidden="true" class="cds--card__footer-icon-size" cta-type="local" href="https://dataplatform.cloud.ibm.com/exchange/public/entry/view/c3dbf23a-9a56-4c4b-8ce5-5707828fc981?context=wx" icon-placement="right" slot="footer" target="_self">
+</c4d-card-footer>
+<span class="ibm_icon_arrowright_local" slot="icon"></span>
+</c4d-card-group-item>
+<c4d-card-group-item cta-type="blog" data-attribute4="ブログ" grid-mode="condensed" href="https://www.ibm.com/blog/what-is-generative-ai-what-are-foundation-models-and-why-do-they-matter/?mhsrc=ibmsearch_a&amp;mhq=what%20is%20generative%20AI" no-poster="true" pictogram-placement="top" target="_self">
+<c4d-card-eyebrow aria-hidden="true" class="cds--card__eyebrow" slot="eyebrow">
+            ブログ
+        </c4d-card-eyebrow>
+<!--*/ Added condition to not load hedaing for video as it is coming from video name also - ICIUC- 116*/-->
+<c4d-card-heading aria-level="3" class="cds--card__heading" role="heading" slot="heading">
+            生成AIおよび基盤モデルの概要とそれらが重要な理由
+        </c4d-card-heading>
+<p>生成AIがどのようにビジネスを変革するのか、そして組織を将来に備える方法を学びましょう。</p>
+<c4d-card-footer aria-hidden="true" class="cds--card__footer-icon-size" cta-type="blog" href="https://www.ibm.com/blog/what-is-generative-ai-what-are-foundation-models-and-why-do-they-matter/?mhsrc=ibmsearch_a&amp;mhq=what%20is%20generative%20AI" icon-placement="right" slot="footer" target="_self">
+</c4d-card-footer>
+<span class="ibm_icon_blog" slot="icon"></span>
+</c4d-card-group-item>
+<c4d-card-group-item cta-type="local" data-attribute4="チュートリアル" grid-mode="condensed" href="https://developer.ibm.com/tutorials/awb-prompt-engineering-llama-2/" no-poster="true" pictogram-placement="top" target="_self">
+<c4d-card-eyebrow aria-hidden="true" class="cds--card__eyebrow" slot="eyebrow">
+            チュートリアル
+        </c4d-card-eyebrow>
+<!--*/ Added condition to not load hedaing for video as it is coming from video name also - ICIUC- 116*/-->
+<c4d-card-heading aria-level="3" class="cds--card__heading" role="heading" slot="heading">
+            プロンプト・エンジニアリングLlama 2向けのシステムと指示プロンプトの開発
+        </c4d-card-heading>
+<p>Llama 2を使ったプロンプト・エンジニアリングのベスト・プラクティス</p>
+<c4d-card-footer aria-hidden="true" class="cds--card__footer-icon-size" cta-type="local" href="https://developer.ibm.com/tutorials/awb-prompt-engineering-llama-2/" icon-placement="right" slot="footer" target="_self">
+</c4d-card-footer>
+<span class="ibm_icon_arrowright_local" slot="icon"></span>
+</c4d-card-group-item>
+</c4d-card-group>
+</c4d-content-block-cards>
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="experiencefragment">
+<div class="cmp-experiencefragment cmp-experiencefragment--watsonx-ai" id="experiencefragment-8f415cf7e9">
+<div class="xf-content-height">
+<div class="root container responsivegrid">
+<div class="cmp-container" id="container-fd33a889ab">
+<div class="next-steps container responsivegrid">
+<div class="cmp-container" id="next-steps-acbe8c0386">
+<div class="next-steps-container">
+<div class="cds--next-steps-container" data-cmp-is="next-steps-container">
+<div class="cds--cta-section--g10 cds--cta-section--theme" data-component-identifier="next-steps" data-component-name="next-steps" data-dynamic-content-type="ADOBE_TARGET">
+<c4d-cta-block class="cta-block-section__container" no-border="">
+<div class="cds--content-block__heading" data-autoid="c4d--content-block__heading" role="heading" slot="heading">
+<a data-title="次のステップ" name="%E6%AC%A1%E3%81%AE%E3%82%B9%E3%83%86%E3%83%83%E3%83%97"></a>
+<span class="enhanced-title">次のステップ</span>
+</div>
+<c4d-content-block-copy size="sm">
+<c4d-content-block-paragraph>
+<div class="cms-richtext" data-dynamic-inner-content="description" id="rich-text-e56fdb182b">
+<p>AI開発者向けの次世代エンタープライズ・スタジオであるIBM watsonx.aiを使用して、生成AI、基盤モデル、機械学習機能をトレーニング、検証、チューニング、デプロイしましょう。わずかなデータ、わずかな時間でAIアプリケーションを構築できます。</p>
+</div>
+</c4d-content-block-paragraph>
+</c4d-content-block-copy>
+<c4d-button-group slot="action">
+<c4d-button-group-item cta-type="local" href="https://www.ibm.com/jp-ja/products/watsonx-ai" kind="primary" target="_self">
+<span>watsonx.aiの詳細はこちら</span>
+</c4d-button-group-item>
+<c4d-button-group-item cta-type="local" href="https://www.ibm.com/account/reg/signup?formid=DEMO-dataaiwatsonxai" kind="tertiary" target="_blank">
+<span>デモを予約</span>
+</c4d-button-group-item>
+
+</c4d-button-group>
+</c4d-cta-block>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="footnotes"><div driverlocation="1-2">
+<div class="cds--content-block" data-autoid="c4d--content-block">
+<div class="cds--grid cds--no-gutter">
+<div class="cds--row">
+<div class="cds--col-lg-4">
+<div class="cds--content-block-segmented" data-autoid="c4d--content-block-segmented">
+<h5>
+                            
+
+
+
+  
+    脚注
+
+
+
+
+
+
+    
+
+
+                        </h5>
+</div>
+</div>
+<div class="cds--col-lg-12">
+<div class="cds--content-block-segmented" data-autoid="c4d--content-block-segmented">
+<div class="cms-richtext" data-dynamic-inner-content="description" id="rich-text-8cd75968e3">
+<table border="0" cellpadding="0" width="100%"><tbody><tr><td valign="top" width="1%"><p><a id="f01"></a>[1]</p>
+</td><td valign="top"><p>Pengfei Liu、W. Y.（2021年）。『<em>Pre-train, Prompt, and Predict: A Systematic Survey of Prompting Methods in Natural Language Processing</em>』。ACM Computing Surveys。</p>
+</td></tr><tr><td valign="top" width="1%"><p><a id="f02"></a>[2]</p>
+</td><td valign="top"><p>Gunwoo Yong, K. J.（2022年）。視覚言語の事前トレーニング済みモデルを使用したゼロ・ショットおよび少数ショットの欠陥検出と分類のための迅速なエンジニアリング。</p>
+</td></tr><tr><td valign="top" width="1%"><p><a id="f03"></a>[3]</p>
+</td><td valign="top"><p>O. Marchenko、O. R.（2020年）。『Improving Text Generation Through Introducing Coherence Metrics』。『<em>Cybernetics and Systems Analysis</em>』。</p>
+</td></tr><tr><td valign="top" width="1%"><p><a id="f04"></a>[4]</p>
+</td><td valign="top"><p>Zhifang Guo、Y. L.（2022年）。『PromptTTS: Controllable Text-To-Speech With Text Descriptions』。<em>Zhifang Guo、Yichong Leng、Yihan Wu、Sheng Zhao、Xuejiao Tan</em>。</p>
+</td></tr><tr><td valign="top" width="1%"><p><a id="f05"></a>[5]</p>
+</td><td valign="top"><p>Jason Wei, X. W.（2022年）。『Chain of Thought Prompting Elicits Reasoning in Large Language Models』。</p>
+</td></tr><tr><td valign="top" width="1%"><p><a id="f06"></a>[6]</p>
+</td><td valign="top"><p>Mero、J.（2018年）。『The effects of two-way communication and chat service usage on consumer attitudes in the e-commerce retailing sector』。『<em>Electronic Markets</em>』。</p>
+</td></tr><tr><td valign="top" width="1%"><p><a id="f07"></a>[7]</p>
+</td><td valign="top"><p>Yu Cheng、J. C.（2023年）。『Prompt Sapper: A LLM-Empowered Production Tool for Building AI Chains』。『<em>ACM Transactions on Software Engineering and Methodology</em>』。</p>
+</td></tr><tr><td valign="top" width="1%"><p><a id="f08"></a>[8]</p>
+</td><td valign="top"><p>Tongshuang Sherry Wu、E. J.（2022年）。『PromptChainer: Chaining Large Language Model Prompts through Visual Programming』。『<em>CHI Conference on Human Factors in Computing Systems Extended Abstracts</em>』。</p>
+</td></tr><tr><td valign="top" width="1%"><p><a id="f09"></a>[9]</p>
+</td><td valign="top"><p>Shwetha Sridharan、D. S.（2021年）。『Adaptive learning management expert system with evolving knowledge base and enhanced learnability』。『<em>Education and Information Technologies</em>』。</p>
+</td></tr><tr><td valign="top" width="1%"><p><a id="f10"></a>[10]</p>
+</td><td valign="top"><p>Boshi Wang、X. D.（2022年）。『Iteratively Prompt Pre-trained Language Models for Chain of Thought』。『<em>Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing</em>』。</p>
+</td></tr><tr><td valign="top" width="1%"><p><a id="f11"></a>[11]</p>
+</td><td valign="top"><p>M. Rice、K. M.（2018年）。『Evaluating an augmented remote assistance platform to support industrial applications』。<em>IEEE 4th World Forum on Internet of Things (WF-IoT)</em>。</p>
+</td></tr><tr><td valign="top" width="1%"><p><a id="f12"></a>[12]</p>
+</td><td valign="top"><p>Cynthia A. Thompson、M. G.（2011年）。『A Personalized System for Conversational Recommendations』。『<em>J. Artif. Intell. Res</em>』。 </p>
+</td></tr><tr><td valign="top" width="1%"><p><a id="f13"></a>[13]</p>
+</td><td valign="top"><p>Qing Huang、J. Z.（2023年）。『PCR-Chain: Partial Code Reuse Assisted by Hierarchical Chaining of Prompts on Frozen Copilot』。『<em>IEEE/ACM 45th International Conference on Software Engineering: Companion Proceedings (ICSE-Companion)</em>』。</p>
+</td></tr><tr><td valign="top" width="1%"><p><a id="f14"></a>[14]</p>
+</td><td valign="top"><p>Yafeng Gu、Y. S.（2023年）。『APICom: Automatic API Completion via Prompt Learning and Adversarial Training-based Data Augmentatio』。『<em>Proceedings of the 14th Asia-Pacific Symposium on Internetware</em>』。</p>
+</td></tr><tr><td valign="top" width="1%"> </td><td valign="top"> </td></tr></tbody></table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</c4d-table-of-contents>
+
+</div>
+<div class="container responsivegrid">
+<div class="cmp-container" id="container-f0be01ec54">
+</div>
+</div>
+<div class="footer">
+<c4d-footer-container class="cmp-footer" data-autoid="c4d--footer" data-children-count="0" data-cmp-is="footer" size="tall"></c4d-footer-container>
+
+</div>
+</div>
+</div>
+</c4d-video-cta-container>
+<div aria-hidden="true" class="video-modal-overlay">
+<div class="video-modal-overlay__dialog">
+<div class="video-modal-overlay__dialog--body">
+<div class="video-modal-overlay__dialog--body__close-btn">
+<svg fill="none" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<rect fill="white" fill-opacity="0.01" height="24" style="mix-blend-mode:multiply" width="24"></rect>
+
+</svg>
+</div>
+<div class="video-modal-overlay__dialog--body-content">
+<div class="video-modal-overlay__loading-container">
+<cds-loading></cds-loading>
+</div>
+<div class="video-wms hide">
+<iframe allowfullscreen="" class="video-modal-content" data-original-src="https://video.ibm.com/embed/$[wmsChanneId]?volume=0&amp;autoplay=true&amp;controls=true" frameborder="no" referrerpolicy="no-referrer-when-downgrade" src="" webkitallowfullscreen=""></iframe>
+</div>
+<div class="video-media-center hide">
+<c4d-video-player-container aspect-ratio="16x9" auto-play="" muted="" playing-mode="inline" video-id=""></c4d-video-player-container>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<c4d-lightbox-video-player-container></c4d-lightbox-video-player-container>
+
+
+
+
+
+
+
+<!-- Added for Adobe analytics implementation ADCMS-5834
+<script type="text/javascript">
+
+    adobeDataLayer.push({
+        "event": "linkClick",
+        "web": {
+            "webPageDetails": {
+                "URL": document.URL,
+                "name": "home"
+            },
+            "webInteraction": {
+                "linkClick":"event",
+                "value":"1",
+                "type": "other",
+                "URL": document.URL,
+                "name": "linkClick: " +  document.URL
+            }
+        },
+    })
+</script>  !-->
+<!-- Added for Adobe analytics implementation ADCMS-5834 & ADCMS-6152 !-->
+
+<link href="/6SpIiY/cYW-/KK/to8V/eg6HHLJibLQ/XG/HzhxJyI/anNdC/DxFDgJZ" rel="stylesheet" type="text/css"/><div id="sec-overlay" style="display:none;"><div id="sec-container"></div></div></body>
+</html>

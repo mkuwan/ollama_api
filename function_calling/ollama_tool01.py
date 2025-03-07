@@ -84,43 +84,5 @@ def tool_calling():
         #     'total_tokens': 270
         # }
 
-
-
-def tool_calling_with_customChatModel():
-    from ollama_chat_model import CustomOllamaChatModel
-    print(f"{"*" * 10} tool_calling_with_customChatModel {"*" * 10}")
-
-    @tool
-    def validate_user(user_id: int, address: List[str]) -> bool:
-        """Validate user using historical addresses.
-
-        Args:
-            user_id (int): the user ID.
-            address (List[str]): Previous addresses as a list of strings.
-
-        Returns:
-            bool: result of the validation.
-        """
-        print(f"User ID: {user_id}")
-        return True
-    
-    chatModel = CustomOllamaChatModel(
-        model="llama3.2",
-        temperature=0.1,
-        end_point="http://localhost:11434/api/chat",
-        tools=[validate_user],
-        # other params...
-    ) #.bind_tools([validate_user])
-
-    result = chatModel.invoke(
-        "Could you validate user 123? They previously lived at "
-        "123 Fake St in Boston MA and 234 Pretend Boulevard in "
-        "Houston TX."
-    )
-
-    print(result)
-
-
 if __name__ == "__main__":
     tool_calling()
-    tool_calling_with_customChatModel()
