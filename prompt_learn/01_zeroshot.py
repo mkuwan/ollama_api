@@ -1,10 +1,11 @@
 # Zero-Shot Prompting 
-# つまり普通のプロンプトです
+# つまり普通のプロンプトです　Q&Aの例文を書いて、それに対して回答を求める
 
 from ollama_chat import OllamaChatMessage
 import time
 
-ollama = OllamaChatMessage()
+ollama = OllamaChatMessage(second=0.01)
+
 
 message = "zero-shot promptについて説明してください"
 for chunk in ollama.response_from_message_stream(message):

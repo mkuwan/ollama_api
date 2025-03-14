@@ -4,7 +4,7 @@ import time
 
 
 class OllamaChatMessage:
-    def __init__(self, model = "llama3.2", second: float = 0.02):
+    def __init__(self, model = "llama3.2", second: float = 0.01):
         # modelが文字列で指定されている場合はそのままmodelに代入
         if isinstance(model, str):
             self.model = model
