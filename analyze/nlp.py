@@ -1,3 +1,5 @@
+## pip install pandas scikit-learn textblob
+
 import pandas as pd
 from ollama import chat
 from sklearn.feature_extraction.text import CountVectorizer

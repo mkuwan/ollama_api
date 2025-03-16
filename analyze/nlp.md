@@ -1,6 +1,11 @@
 このコードは、顧客フィードバックデータを収集し、自然言語処理を用いて分析する一連のプロセスを実行しています。以下に、各ステップを順を追って説明します。
 
 ### 1. 必要なライブラリのインポート
+
+```shell
+pip install pandas scikit-learn textblob
+```
+
 ```python
 import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
