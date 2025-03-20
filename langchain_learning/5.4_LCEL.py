@@ -37,13 +37,13 @@ model = ChatOpenAI(
 )
 
 prompt = ChatPromptTemplate.from_template('''\
-    以下の文脈だけを踏まえて質問に回答してください。'
+    以下の文脈だけを踏まえて質問に回答してください。
     
-    文脈:"""'
+    文脈:"""
     {context}
     """
 
-    質問:"""'
+    質問:"""
     {question}
     """
     ''')
