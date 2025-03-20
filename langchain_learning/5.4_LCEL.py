@@ -29,8 +29,8 @@ with open(".local_pass.json") as f:
     os.environ["TAVILY_API_KEY"] = TAVILY_API_KEY
 
 model = ChatOpenAI(
-    # model="mistral:latest",
-    model="llama3.2",
+    model="mistral:latest",
+    # model="llama3.2",
     temperature=0.3,
     base_url="http://localhost:11434/v1/",
     api_key="ollama",
@@ -76,16 +76,23 @@ retriever = TavilySearchAPIRetriever(k=3)
 #         )
 # )
 
-chain = RunnableParallel(
+chain = (RunnableParallel(
     {
         "context": retriever,
         "question": RunnablePassthrough(),  # 入力をそのまま出力する
     }
-).assign(
-    answer=prompt | model | StrOutputParser()
+)
+.assign(answer=prompt | model | StrOutputParser())
+.pick(["question", "answer"])                # question と answer のみを出力      
 )
 
-output = chain.invoke("川崎市の明日の天気は？")
+output = chain.invoke("川崎市の今日の天気は？")
 print(output)
+
+
+# assignを使うことで、contextのようなChainの中間の値をChainの最終出力に含めることができます。
+# そのため、プロンプトを穴埋めした結果を画面に表示したい場合など、
+# Chainの中間の値をUI上に表示したい場合にもassignが役立ちます。
+
 
 
