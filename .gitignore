@@ -1,0 +1,21 @@
+# pythonで一般的に使用される.gitignoreの設定値
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# env
+.env
+.venv
+venv/
+
+.local_pass.json
+.local_pass
+
+
+chromadb/
+java_docs/
+rag_doc/
+rag/
+autogenProject/
+sphinxdoc/
