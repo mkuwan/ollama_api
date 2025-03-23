@@ -159,7 +159,10 @@ def extract_and_restructure_pdf(
         raw_texts = []  # 生テキストを保存するリスト
         markdown_results = []  # 整形後のテキストを保存するリスト
 
-        
+        os.makedirs(output_md_path, exist_ok=True)
+        os.makedirs(Path(output_md_path).joinpath("images"), exist_ok=True)
+        os.makedirs(output_raw_text_path, exist_ok=True)
+
         print("# PDFページを順に処理")
         for page_num in tqdm(range(first_page - 1, last_page), desc="Processing PDF Pages"):
             page = doc[page_num]
@@ -193,23 +196,10 @@ def extract_and_restructure_pdf(
                         if attempt == max_retries - 1:
                             print(f"Failed after max retries for page {page_num + 1}.")
                         time.sleep(retry_delay)
-            # else:
-            #     # LLMを使用せずにpymupdf4llmで抽出したテキストをmarkdown_resultsに追加
-            #     mk = pymupdf4llm.to_markdown(extracted_text)
-            #     markdown_results.append(mk)
 
             # 抽出されたテキストを保存
             raw_texts.append(f"## ページ {page_num + 1}\n{extracted_text}")
 
-        os.makedirs(output_md_path, exist_ok=True)
-        os.makedirs(Path(output_md_path).joinpath("images"), exist_ok=True)
-        os.makedirs(output_raw_text_path, exist_ok=True)
-
-        # 生テキストをファイルに保存
-        text_path = Path(output_raw_text_path).joinpath(f"{file_name}.txt")
-        with open(text_path, "w", encoding="utf-8") as raw_file:
-            raw_file.write("\n\n".join(raw_texts))
-        print(f"抽出されたテキストが保存されました: {text_path}")
 
         if use_llm:
             output_markdown = "\n\n".join(markdown_results)
@@ -230,6 +220,12 @@ def extract_and_restructure_pdf(
             # md_file.write("\n\n".join(markdown_results))
             md_file.write(output_markdown)
         print(f"整形結果がMarkdownファイルに保存されました: {markdown_path}")
+
+        # 生テキストをファイルに保存
+        text_path = Path(output_raw_text_path).joinpath(f"{file_name}.txt")
+        with open(text_path, "w", encoding="utf-8") as raw_file:
+            raw_file.write("\n\n".join(raw_texts))
+        print(f"抽出されたテキストが保存されました: {text_path}")
 
     except Exception as e:
         print(f"Error processing PDF: {e}")

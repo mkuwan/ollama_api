@@ -190,6 +190,8 @@ def reciprocal_rank_fusion(results: list[list], k=10):
         (loads(doc), score)
         for doc, score in sorted(fused_scores.items(), key=lambda x: x[1], reverse=True)
     ]
+
+    # pp.pprint(f"reranked_results: {reranked_results}")
     return reranked_results
 
 
