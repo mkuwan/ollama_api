@@ -79,6 +79,7 @@ model = ChatOpenAI(
 )
 
 
+# 6.3_RAG.pyで作成したVectorStoreを取得します。
 def get_vector_store(collection_name) -> Chroma:
     """Chromaのインスタンスを取得します。
 
