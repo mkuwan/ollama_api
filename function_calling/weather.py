@@ -40,7 +40,7 @@ def geta_current_weathcer_from_city(city_name: str = "Tokyo") -> dict:
         "appid": OPEN_WEATHER_API_KEY
     })
     current_weather = current_weather_response.json()
-    # print(current_weather)
+    print(current_weather)
     return {
         "city_name": current_weather["name"],
         "description": current_weather["weather"][0]["description"],
@@ -130,7 +130,7 @@ def call_with_function_or_not(query):
 
 if __name__ == "__main__":
     # 都市の天気を質問してtoolが使用されることを確認します
-    query = "What is the weather in Kawasaki?"
+    query = "What is the weather in okinawa?"
     call_with_function_or_not(query)
     
     # 天気とは関係のない質問をしたらToolが選択されないことを確認します
